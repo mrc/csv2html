@@ -6,38 +6,38 @@ Detects delimited text and formats it as a HTML table.
 - Tries to guess CSV format
 
 ** Synopsis
-#+begin_example
+#+BEGIN_EXAMPLE
 csv2html
-#+end_example
+#+END_EXAMPLE
 
 ** Trivial example
-#+begin_example
+#+BEGIN_EXAMPLE
 % echo '1,2,"3,4"' | csv2html
 <TABLE>
   <TR>
     <TD>1</TD><TD>2</TD><TD>3,4</TD>
   </TR>
 </TABLE>
-#+end_example
+#+END_EXAMPLE
 
-#+begin_example
+#+BEGIN_EXAMPLE
 % echo '1 2 3   4' | ./csv2html
 <TABLE>
   <TR>
     <TD>1</TD><TD>2</TD><TD>3</TD><TD>4</TD>
   </TR>
 </TABLE>
-#+end_example
+#+END_EXAMPLE
 
 ** Example: send delimited text output to the OS X clipboard as RTF
 - This is handy because Numbers doesn't have an option to split up
   delimited text.
-#+begin_src sh
+#+BEGIN_SRC sh
 % some_process_that_outputs_csv |
   csv2html |
   textutil -format html -convert rtf -stdin -stdout |
   pbcopy -Prefer rtf
-#+end_src
+#+END_SRC
 
 ** Bugs
 - There is no way of specifying a custom delimiter
